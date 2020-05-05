@@ -29,21 +29,20 @@ console.log(unique(array))
 
 // 2. Given an array of numbers. Find the sum of numbers’ quadratic which are even.
 
-
-let array = [1, 2, 4]
+let array = [9, 4, 16] 
 
 
 function even(arr) {
     let myArr = []
 
-    for (let i = 0; i < arr.length; i++) {
-        myArr.push(arr[i] * arr[i])
-    }
+    arr.filter(function (el) {
+        if (Math.sqrt(el) % 2 === 0) {
+            myArr.push(el)
+        }
+    })
+    return myArr.reduce((acc, curr) => acc + curr, 0)
 
-    return myArr.filter(el => el % 2 ? false : el)
-        .reduce((acc, curr) => acc + curr, 0)
 }
-
 console.log(even(array))
 
 
